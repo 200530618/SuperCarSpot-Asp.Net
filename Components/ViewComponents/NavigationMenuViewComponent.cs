@@ -12,9 +12,13 @@ namespace SuperCarSpot.Components.ViewComponents
                 {
                     new MenuItem { Controller = "Home", Action = "Index", Label = "Home"},
                     new MenuItem { Controller = "Home", Action = "About", Label = "About"},
-                    new MenuItem { Controller = "Companies", Action = "Index", Label = "Companies", DropdownItems = new List<MenuItem> { 
-                    new MenuItem { Controller = "Companies", Action = "Index", Label = "List"},
-                    new MenuItem { Controller = "Companies", Action = "Create", Label = "Create"},
+                    new MenuItem { Controller = "Brands", Action = "Index", Label = "Brands", DropdownItems = new List<MenuItem> { 
+                    new MenuItem { Controller = "Brands", Action = "Index", Label = "List"},
+                    new MenuItem { Controller = "Brands", Action = "Create", Label = "Create"},
+                    } },
+                     new MenuItem { Controller = "Cars", Action = "Index", Label = "Cars", DropdownItems = new List<MenuItem> {
+                    new MenuItem { Controller = "Cars", Action = "Index", Label = "List"},
+                    new MenuItem { Controller = "Cars", Action = "Create", Label = "Create"},
                     } },
                     new MenuItem { Controller = "Home", Action = "Privacy", Label = "Privacy"},
                 };
