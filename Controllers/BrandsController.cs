@@ -22,8 +22,10 @@ namespace SuperCarSpot.Controllers
         // GET: Brands
         public async Task<IActionResult> Index()
         {
-              return _context.Brands != null ? 
-                          View(await _context.Brands.ToListAsync()) :
+              return (_context.Brands != null) ? 
+                          View(await _context.Brands
+                          .OrderBy(brand => brand.Name)
+                          .ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Brands'  is null.");
         }
 

@@ -1,0 +1,26 @@
+﻿@model SuperCarSpot.Models.Car
+
+@{
+    var photoPath = (Model != null && !string.IsNullOrEmpty(Model.Photo)) ?
+            "/images/cars/" + Model.Photo : "/images/placeholder.jpg";
+}
+
+<img id="photo-preview" class="img-thumbnail" src="@photoPath" alt="Car Photo"/>
+
+<script>
+    function previewImage(event){
+        const input = event.target;
+
+        if(input.files && input.files[0]){
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const imagePreview = document.querySelector("#photo-preview");
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = "block"
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

@@ -86,7 +86,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <img class="img-thumbnail img-fluid" src="@Html.DisplayFor(modelItem => item.Photo)" />
+                <partial name="_CarPhoto" model="item" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Brand.Name)
