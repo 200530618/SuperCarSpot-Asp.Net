@@ -1,0 +1,101 @@
+﻿@model SuperCarSpot.Models.Brand
+
+@{
+    ViewData["Title"] = "Shop Cars for" + Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars.FirstOrDefault().Brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cars) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Name)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">View Car</a> 
+                <a asp-controller="Favourites" asp-action="AddToFavourite" asp-route-id="@item.Id">Add To Favourite</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

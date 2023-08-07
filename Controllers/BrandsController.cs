@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SuperCarSpot.Models;
 
 namespace SuperCarSpot.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     public class BrandsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -28,7 +30,7 @@ namespace SuperCarSpot.Controllers
                           .ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Brands'  is null.");
         }
-
+        
         // GET: Brands/Details/5
         public async Task<IActionResult> Details(int? id)
         {
