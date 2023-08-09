@@ -28,5 +28,14 @@ namespace SuperCarSpot.Controllers
 
             return View(brandWithCars);
         }
+
+        public async Task<IActionResult> CarDetails(int? id)
+        {
+            var car = await _context.Cars
+                .Include(car => car.Brand)
+                .FirstOrDefaultAsync(car => car.Id == id);
+
+            return View(car);
+        }
     }
 }

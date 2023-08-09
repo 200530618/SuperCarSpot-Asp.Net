@@ -23,6 +23,15 @@ namespace SuperCarSpot
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuth = builder.Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = googleAuth["ClientId"];
+                    options.ClientSecret = googleAuth["ClientSecret"];
+                });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

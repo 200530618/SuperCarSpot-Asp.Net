@@ -92,8 +92,19 @@
                 @Html.DisplayFor(modelItem => item.Brand.Name)
             </td>
             <td>
+                    
+                       <form asp-action="AddToFavourite">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <input type="hidden" name="carId" value="@Model.Id">
+
+                            <input type="submit" value="AddToFavourite" class="btn btn-danger">
+                        }
+                       </form>
+                     
+                
+
                 <a asp-action="Details" asp-route-id="@item.Id">View Car</a> 
-                <a asp-controller="Favourites" asp-action="AddToFavourite" asp-route-id="@item.Id">Add To Favourite</a>
             </td>
         </tr>
 }
