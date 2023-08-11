@@ -7,9 +7,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -92,19 +90,19 @@
                 @Html.DisplayFor(modelItem => item.Brand.Name)
             </td>
             <td>
-                    
-                       <form asp-action="AddToFavourite">
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                       <form class="d-inline" asp-action="AddToFavourite">
+                        
                             <input type="hidden" name="carId" value="@Model.Id">
 
-                            <input type="submit" value="AddToFavourite" class="btn btn-danger">
-                        }
+                            <input type="submit" value="Quick Add" class="btn btn-primary">
+                        
                        </form>
                      
-                
+                    }
 
-                <a asp-action="Details" asp-route-id="@item.Id">View Car</a> 
+                <a class="btn btn-secondary" asp-action="CarDetails" asp-route-id="@item.Id">View Car</a> 
             </td>
         </tr>
 }

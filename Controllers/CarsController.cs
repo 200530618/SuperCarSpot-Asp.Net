@@ -76,18 +76,21 @@ namespace SuperCarSpot.Controllers
 
         private async Task<string> UploadPhoto(IFormFile Photo)
         {
-            if (Photo == null) return null;
+            if (Photo == null)
+            {
 
-            var filePath = Path.GetTempFileName();
+                var filePath = Path.GetTempFileName();
 
-            var fileName = Guid.NewGuid() + "-" + Photo.FileName;
+                var fileName = Guid.NewGuid() + "-" + Photo.FileName;
 
-            var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\images\\cars\\" + fileName;
+                var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\images\\cars\\" + fileName;
 
-            using var stream = new FileStream(uploadPath, FileMode.Create);
-            await Photo.CopyToAsync(stream);
+                using var stream = new FileStream(uploadPath, FileMode.Create);
+                await Photo.CopyToAsync(stream);
 
-            return fileName;
+                return fileName;
+            }
+            return null;
         }
 
         // GET: Cars/Edit/5

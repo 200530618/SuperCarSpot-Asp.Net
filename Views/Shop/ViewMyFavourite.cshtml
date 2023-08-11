@@ -1,0 +1,73 @@
+﻿@model SuperCarSpot.Models.Favourite
+
+@{
+    if(Model == null || Model.FavouriteItems == null || Model.FavouriteItems.Count == 0)
+    {
+        <div class="alert alert-warning">
+            <p>You must add items to your favourite!</p>
+        </div>
+
+        return;
+    }
+}
+@{
+    ViewData["Title"] = "Favourite Details for" + Model.User.Email;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+   <table class="table table-striped">
+       <thead>
+           <tr>
+               <th>Car Name</th>
+               
+               <th>Price</th>
+                <th>Car Photo</th>
+           </tr>
+       </thead>
+
+       <tbody>
+            @foreach(var favouriteItem in Model.FavouriteItems)
+            {
+                var price = favouriteItem.Price;
+
+                <tr>
+                    <td>
+                        @favouriteItem.Car.Name
+                    </td>
+                    <td>@favouriteItem.Price</td>
+                    <td>@favouriteItem.Car.Photo</td>
+                    <td>
+                        <form class="d-inline" asp-action="DeleteFavouriteItem">
+                            <input type="hidden" name="favouriteItemId" value="@favouriteItem.Id">
+                            <input class="btn btn-danger" type="submit" value="Remove">
+                        </form>
+
+                        <a class="btn btn-secondary" asp-action="CarDetails" asp-route-id="@favouriteItem.CarId">
+                            View Car
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            @{
+                var total = Model.FavouriteItems.Sum(favouriteItem => favouriteItem.Price);
+            }
+
+            <tr>
+                <th>Total:</th>
+                <td colspan="3">@total</td>
+                <td></td>
+            </tr>
+        </tfoot>
+   </table>
+</div>
+<div>
+   
+<div>
+    <a class="btn btn-success" asp-action="Checkout">Checkout</a>
+    <a asp-action="Index">Back to Brands</a>
+</div>
