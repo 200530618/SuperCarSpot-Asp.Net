@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
+using Stripe.BillingPortal;
+using Stripe.Checkout;
 using SuperCarSpot.Data;
 using SuperCarSpot.Models;
 using System.Security.Claims;
@@ -11,10 +14,12 @@ namespace SuperCarSpot.Controllers
     public class ShopController : Controller
     {
         private ApplicationDbContext _context;
+        private IConfiguration _configuration;
 
-        public ShopController(ApplicationDbContext context)
+        public ShopController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
         public async Task<IActionResult> Index()
         {
@@ -144,6 +149,62 @@ namespace SuperCarSpot.Controllers
 
             ViewData["PaymentMethods"] = new SelectList(Enum.GetValues(typeof(PaymentMethods)));
             return View(order);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Payment(string shippingAddress, PaymentMethods paymentMethod)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var favourite = await _context.Favorites
+                .Include(favourite => favourite.FavouriteItems)
+                .FirstOrDefaultAsync(favourite => favourite.UserId == userId && favourite.Active == true);
+
+            if (favourite == null) return NotFound();
+
+            HttpContext.Session.SetString("ShippingAddress", shippingAddress);
+            HttpContext.Session.SetString("PaymentMethod", paymentMethod.ToString());
+
+            StripeConfiguration.ApiKey = _configuration.GetSection("Stripe")["SecretKey"];
+
+            var options = new Stripe.Checkout.SessionCreateOptions
+            {
+                LineItems = new List<SessionLineItemOptions>
+                {
+                    new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = (long)(favourite.FavouriteItems.Sum(favouriteItem =>  favouriteItem.Price)*100),
+                            Currency = "cad",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = "SuperCarSpot Purchase",
+                            },
+                        },
+                        Quantity = 1,
+                    },
+                },
+                PaymentMethodTypes = new List<string>
+                {
+                    "card"
+                },
+                Mode = "payment",
+                SuccessUrl = "https://" + Request.Host + "/Shop/SaveOrder",
+                CancelUrl = "https://" + Request.Host + "/Shop/ViewMyFavourite",
+            };
+
+            var service = new Stripe.Checkout.SessionService();
+            Stripe.Checkout.Session session = service.Create(options);
+
+            Response.Headers.Add("Location", session.Url);
+            return new StatusCodeResult(303);
+      
+        }
+        public async Task <IActionResult> SaveOrder()
+        {
+
         }
     }
 }
