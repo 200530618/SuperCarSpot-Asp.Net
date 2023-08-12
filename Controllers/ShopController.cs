@@ -204,7 +204,65 @@ namespace SuperCarSpot.Controllers
         }
         public async Task <IActionResult> SaveOrder()
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+            var favourite = await _context.Favorites
+                .Include(favourite => favourite.FavouriteItems)
+                .FirstOrDefaultAsync(favourite => favourite.UserId == userId && favourite.Active == true);
+
+            var paymentMethod = HttpContext.Session.GetString("PaymentMethod");
+            var shippingAddress = HttpContext.Session.GetString("ShippingAddress");
+
+            var order = new Order
+            {
+                UserId = userId,
+                Favourite = favourite,
+                Total = favourite.FavouriteItems.Sum(favouriteItem => favouriteItem.Price),
+                ShippingAddress = shippingAddress,
+                PaymentMethod = (PaymentMethods)Enum.Parse(typeof(PaymentMethods), paymentMethod),
+                PaymentReceived = true
+            };
+
+            await _context.AddAsync(order);
+            await _context.SaveChangesAsync();
+
+            favourite.Active = false;
+            _context.Update(favourite);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("OrderDetails", new {id = order.Id});
+        }
+
+        [Authorize]
+        public async Task<IActionResult> OrderDetails(int id)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var order = await _context.Orders
+                .Include(order => order.User)
+                .Include(order => order.Favourite)
+                .ThenInclude(favourite => favourite.FavouriteItems)
+                .ThenInclude(favouriteItem => favouriteItem.Car)
+                .FirstOrDefaultAsync(order => order.UserId == userId && order.Id == id);
+
+            if(order == null) return NotFound();
+
+            return View(order);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Orders()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var orders = await _context.Orders
+                .OrderByDescending(order => order.Id)
+                .Where(order => order.UserId == userId)
+                .ToListAsync();
+
+            if (orders == null) return NotFound();
+
+            return View(orders);
         }
     }
 }
