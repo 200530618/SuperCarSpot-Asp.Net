@@ -6,7 +6,7 @@ The application you will build will be done in 4 parts (this being the first) ov
 3.	Presentation - 10%
 4.	Polished App - 15%
 
-Student Name: Anuj Jaglan (200518157) , Sourabh Singh (200530618)
+Student Name: Anuj Jaglan (200518157)[Thursday from 6 to 9 pm] , Sourabh Singh (200530618)[Thursday from 2 to 5 pm]
 
 
 Purpose of your application: (2 marks)
