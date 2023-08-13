@@ -76,7 +76,7 @@ namespace SuperCarSpot.Controllers
 
         private async Task<string> UploadPhoto(IFormFile Photo)
         {
-            if (Photo == null)
+            if (Photo != null)
             {
 
                 var filePath = Path.GetTempFileName();
