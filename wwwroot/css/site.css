@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -20,3 +20,546 @@ body {
 .img-thumbnail{
     max-width: 150px;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2em;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}*/
+/*:root {
+    --main-color: #fe5b3d;
+    --second-color: #ffac38;
+    --text-color: #444;
+    --gradient: linear-gradient(#fe5b3d,#ffac38);
+}*/
+/* custom scroll bar */
+/*html::-webkit-scrollbar{
+    width:0.5rem;
+}
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+section{
+    padding:50px 100px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2em;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+/*/ * custom scroll bar */
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+img-thumbnail {
+    max-width: 165px;
+}
+
+/* Navigation Menu Styling */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-right: 20px;
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #007BFF;
+    }
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+    .dropdown-item:hover {
+        background-color: #f2f2f2;
+    }
+
+/* SVG Icon Styling */
+.svg-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    fill: currentColor;
+}
+
+/* Additional Effects and Colors */
+.nav-menu {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #007BFF;
+}
+
+    .nav-link:hover {
+        color: #0056b3;
+    }
+
+.dropdown-content {
+    border: 1px solid #ddd;
+}
+
+.dropdown-item {
+    color: #333;
+}
+
+    .dropdown-item:hover {
+        background-color: #f2f2f2;
+        color: #007BFF;
+    }
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #007BFF;
+    }
+
+.form-floating {
+    position: relative;
+}
+
+    .form-floating label {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 14px;
+        color: #999;
+        pointer-events: none;
+        transition: transform 0.3s ease, top 0.3s ease, font-size 0.3s ease;
+    }
+
+.form-control:focus ~ .form-floating label,
+.form-control:not(:placeholder-shown) ~ .form-floating label {
+    transform: translateY(-22px);
+    font-size: 12px;
+    color: #007BFF;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Section Styling */
+.section {
+    margin-top: 40px;
+}
+
+/* External Login Buttons */
+.btn-external {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-external.facebook {
+        background-color: #1877F2;
+    }
+
+    .btn-external.google {
+        background-color: #DB4437;
+    }
+
+    .btn-external.twitter {
+        background-color: #1DA1F2;
+    }
+
+    .btn-external:hover {
+        opacity: 0.9;
+    }
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #007BFF;
+    }
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Section Styling */
+.section {
+    margin-top: 40px;
+}
+
+/* Back to List Link Styling */
+.back-link {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+    .back-link:hover {
+        color: #0056b3;
+    }
+
+/* Validation Message Styling */
+.text-danger {
+    color: #ff3333;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Label Styling */
+.control-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+/* elete company Styling */
+
+/* Heading Styling */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Confirmation Message Styling */
+.confirm-message {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* Details Styling */
+.dl-horizontal dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dl-horizontal dd {
+    margin-left: 0;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .delete-btn:hover {
+        background-color: #c82333;
+    }
+
+/* Back to List Link Styling */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+    .back-link:hover {
+        color: #0056b3;
+    }
+/* etails company Styling */
+/* Heading Styling */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Details Section Styling */
+.details-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+    .details-section:hover {
+        transform: scale(1.02);
+    }
+
+/* Definition List Styling */
+.dl-horizontal dt {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dl-horizontal dd {
+    margin-left: 0;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+/* Action Links Styling */
+.action-links {
+    margin-top: 20px;
+}
+
+    .action-links a {
+        text-decoration: none;
+        color: #007BFF;
+        font-weight: bold;
+        margin-right: 20px;
+        transition: color 0.3s ease;
+    }
+
+        .action-links a:hover {
+            color: #0056b3;
+        }
+/* Heading Styling */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Form Container Styling */
+.form-container {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+    .form-container:hover {
+        transform: scale(1.02);
+    }
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+/* Input Field Styling */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus {
+        border-color: #007BFF;
+    }
+
+/* Validation Error Styling */
+.text-danger {
+    color: #dc3545;
+}
+
+/* Action Links Styling */
+.action-links {
+    margin-top: 20px;
+}
+
+    .action-links a {
+        text-decoration: none;
+        color: #007BFF;
+        font-weight: bold;
+        margin-right: 20px;
+        transition: color 0.3s ease;
+    }
+
+        .action-links a:hover {
+            color: #0056b3;
+        }
+/* Heading Styling */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* "Create New" Link Styling */
+.create-link {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .create-link:hover {
+        background-color: #0056b3;
+    }
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table th,
+    .table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+/* Action Links Styling */
+.action-links a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+    .action-links a:hover {
+        color: #0056b3;
+    }

@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <title>Responsive Contact Us Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./css/contact.css" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #FFF; /* Set background color to white */
+            background-image: url('bg-img.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+
+
+        section {
+            position: relative;
+            z-index: 3;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .container {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        .section-header {
+            margin-bottom: 5%;
+            text-align: center;
+        }
+
+            .section-header h2 {
+                color: #000; /* Set text color to black */
+                font-weight: bold;
+                font-size: 4vw;
+                margin-bottom: 2%;
+            }
+
+            .section-header p {
+                color: #000; /* Set text color to black */
+            }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            margin-bottom: 5%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            margin-bottom: 3%;
+        }
+
+        .contact-info-icon {
+            height: 7vw;
+            width: 7vw;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+            .contact-info-icon i {
+                font-size: 3vw;
+                line-height: 7vw;
+            }
+
+        .contact-info-content {
+            margin-left: 4%;
+        }
+
+            .contact-info-content h4 {
+                color: #000;
+                font-size: 2vw;
+                margin-bottom: 1%;
+            }
+
+            .contact-info-content p {
+                color: #000; /* Set text color to black */
+                font-size: 1vw;
+            }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 4vw;
+            flex: 1;
+            padding-bottom: 2%;
+            padding-top: 2%;
+        }
+
+            .contact-form h2 {
+                font-weight: bold;
+                font-size: 3vw;
+                margin-bottom: 1%;
+                color: #333;
+            }
+
+            .contact-form .input-box {
+                position: relative;
+                width: 100%;
+                margin-top: 2%;
+            }
+
+                .contact-form .input-box input,
+                .contact-form .input-box textarea {
+                    width: 100%;
+                    padding: 1.5%;
+                    font-size: 2vw;
+                    margin: 2% 0;
+                    border: none;
+                    border-bottom: 0.2vw solid #333;
+                    outline: none;
+                    resize: none;
+                }
+
+                .contact-form .input-box span {
+                    position: absolute;
+                    left: 0;
+                    padding: 1.5%;
+                    font-size: 2vw;
+                    margin: 2% 0;
+                    pointer-events: none;
+                    transition: 0.5s;
+                    color: #666;
+                }
+
+                .contact-form .input-box input:focus ~ span,
+                .contact-form .input-box textarea:focus ~ span {
+                    color: #e91e63;
+                    font-size: 1vw;
+                    transform: translateY(-20%);
+                }
+
+                .contact-form .input-box input[type="submit"] {
+                    width: 100%;
+                    background: #00bcd4;
+                    color: #FFF;
+                    border: none;
+                    cursor: pointer;
+                    padding: 2%;
+                    font-size: 2vw;
+                    border: 0.1vw solid #00bcd4;
+                    transition: 0.5s;
+                }
+
+                    .contact-form .input-box input[type="submit"]:hover {
+                        background: #FFF;
+                        color: #00bcd4;
+                    }
+
+        section {
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .row {
+            flex-direction: row;
+        }
+
+        .contact-info {
+            margin-bottom: 4%;
+            flex: 1;
+            width: 50%;
+        }
+
+        .contact-form {
+            flex: 1;
+            width: 50%;
+        }
+
+        .social-media-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+            .social-media-list li {
+                margin-bottom: 5px;
+            }
+    </style>
+</head>
+<body>
+
+    <section>
+
+        <div class="section-header">
+            <div class="container">
+                <h2>
+                    Contact Super Car Spot
+                </h2>
+                <p>
+                    We're thrilled to connect with you and address any inquiries you may have. Your satisfaction and experience are our top priorities. Here's how you can reach out to us:
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h4>Address</h4>
+                            <p>
+                                Super Car Spot Headquarters<br />
+                                123 Luxury Drive<br />
+                                Supercar City, SC 98765<br />
+                                India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h4>Give Us a Call:</h4>
+                            <p>
+                                Customer Service: +1-800-SUPRCAR (1-800-787-7227)<br />
+                                Sales Enquiries: +1-888-FASTRIDE (1-888-327-8743)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <div class="contact-info-content">
+                            <h4>Email Us:</h4>
+                            <p>
+                                General Inquiries: info@supercarspot.com<br />
+                                Customer Support: support@supercarspot.com<br />
+                                Sales Department: sales@supercarspot.com<br />
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+
+                        <div class="contact-info-content">
+                            <h4>Connect with Us Online:</h4>
+                            <p>
+                                Follow us on social media for the latest updates, special offers, and behind-the-scenes glimpses into the world of luxury driving:
+                                <ul class="social-media-list">
+                                    <li><i class="fab fa-facebook"></i> SuperCarSpotOfficial</li>
+                                    <li><i class="fab fa-instagram"></i> SuperCarSpot</li>
+                                    <li><i class="fab fa-twitter"></i> SuperCarSpot</li>
+                                    <li><i class="fab fa-linkedin"></i> Super Car Spot</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="contact-form">
+                    <form action="" id="contact-form">
+                        <h2>Feedback and Suggestions:</h2>
+                        <p>
+                            We value your feedback and are always striving to enhance your experience. If you have suggestions or comments, please feel free to share them with us at feedback@supercarspot.com.
+                            <br /><br />Alternatively, you're welcome to use the form provided below to share your insights. We're eager to hear from you and enhance your experience with Super Car Spot.
+                        </p>
+                        <div class="input-box">
+                            <input type="text" required="true" name="">
+                            <span>Full Name</span>
+                        </div>
+
+                        <div class="input-box">
+                            <input type="email" required="true" name="">
+                            <span>Email</span>
+                        </div>
+
+                        <div class="input-box">
+                            <textarea required="true" name=""></textarea>
+                            <span>Type your Message...</span>
+                        </div>
+
+                        <div class="input-box">
+                            <input type="submit" value="Send" name="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info-content">
+            <br /><br /> <h4>Connect with Us Online:</h4>
+            <p>
+                Our dedicated team is available to assist you during our business hours, Monday through Friday, 9:00 AM to 6:00 PM, and Saturday from 10:00 AM to 4:00 PM (local time). Whether you're inquiring about rentals, sales, or any other aspect of Super Car Spot, we're here to serve you.
+                <br /><br />
+                Thank you for choosing Super Car Spot. We look forward to exceeding your expectations and being part of your luxury driving journey.
+            </p>
+        </div>
+
+
+        </div>
+    </section>
+
+</body>
+</html>

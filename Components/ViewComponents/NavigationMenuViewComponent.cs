@@ -21,10 +21,12 @@ namespace SuperCarSpot.Components.ViewComponents
                        new MenuItem { Controller = "Orders", Action = "Index", Label = "Orders"},
                        new MenuItem { Controller = "Favourites", Action = "Index", Label = "Favourites"},
                       }},
-                  
-                    new MenuItem { Controller = "Home", Action = "About", Label = "About"},
-                    new MenuItem { Controller = "Home", Action = "Privacy", Label = "Privacy"},
-                };
+
+                     new MenuItem { Controller = "Home", Action = "Contact", Label="Contact Us"},
+                    new MenuItem { Controller = "Home", Action = "Privacy", Label = "Privacy Policy"},
+                    new MenuItem { Controller = "Home", Action = "About", Label = "About Us"},
+                
+                 };
             
             return View(menuItems); 
         }   

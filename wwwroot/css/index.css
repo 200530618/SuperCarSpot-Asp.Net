@@ -1,0 +1,60 @@
+﻿custom scroll bar
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+
+section {
+    padding: 50px 50px;
+}
+
+.rent {
+    padding: 10px 20px;
+    background: #fe5b3b;
+    font-weight: 500;
+    color: #fff;
+    border-radius: .5rem;
+    text-decoration: none;
+}
+
+    .rent:hover {
+        transform: scale(1.1);
+        cursor: grabbing;
+    }
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    background: #eeeff1;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.text h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.text p {
+    margin: .5rem 0 1rem;
+}
+
+.image img {
+    width: 740px;
+    height: 100%;
+}
+
+.store img {
+    width: 400px;
+    cursor: pointer;
+}
